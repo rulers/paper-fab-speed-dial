@@ -17,8 +17,8 @@ Style                                            | Description
 
 ```html
 <paper-fab-speed-dial>
-  <paper-fab-speed-dial-action icon="icons:content-copy">Copy</paper-fab-speed-dial-action>
-  <paper-fab-speed-dial-action icon="icons:print">Print</paper-fab-speed-dial-action>
+  <paper-fab-speed-dial-action icon="icons:content-copy" href="/foo/bar">Copy</paper-fab-speed-dial-action>
+  <paper-fab-speed-dial-action icon="icons:print" href="/hoge/fuga">Print</paper-fab-speed-dial-action>
 </paper-fab-speed-dial>
 ```
 
@@ -43,7 +43,7 @@ Style                                            | Description
 				margin-top: 20px;
 				display: inline-block;
 			}
-			
+
 			.overlay {
 				right: 16px;
 				bottom: 16px;
@@ -53,7 +53,7 @@ Style                                            | Description
 		</style>
 
 		<paper-fab icon='add' class='open' on-tap='open' hidden=[[opened]]></paper-fab>
-		
+
 		<paper-fab-speed-dial-overlay class='overlay' opened={{opened}} with-backdrop no-cancel-on-outside-click>
 			<content></content>
 			<paper-fab icon='close' class='close' on-tap='close'></paper-fab>

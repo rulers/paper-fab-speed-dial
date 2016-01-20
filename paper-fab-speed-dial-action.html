@@ -14,11 +14,14 @@ Style                                                   | Description
 ### Example
 
 ```html
-<paper-fab-speed-dial-action icon="icons:content-copy">Copy</paper-fab-speed-dial-action>
+<paper-fab-speed-dial-action icon="icons:content-copy" href="/foo/bar">Copy</paper-fab-speed-dial-action>
 ```
 
 @demo demo/index.html
 -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-fab/paper-fab.html">
+
 <dom-module id='paper-fab-speed-dial-action'>
 
 	<template>
@@ -31,7 +34,7 @@ Style                                                   | Description
 				margin-right: 8px;
 				display: block;
 			}
-			
+
 			.label {
 				color: black;
 				background: white;
@@ -40,7 +43,7 @@ Style                                                   | Description
 				margin-right: 20px;
 				text-align: right;
 			}
-			
+
 			.fab {
 				--paper-fab-background: var(--paper-fab-speed-dial-action-background);
 				--paper-fab-keyboard-focus-background: var(--paper-fab-speed-dial-action-keyboard-focus-background);
@@ -48,7 +51,7 @@ Style                                                   | Description
 		</style>
 
 		<div class='flex'><span class='label'><content></content></span></div>
-		<paper-fab class='fab' icon=[[icon]] mini></paper-fab>
+		<a href="[[href]]"><paper-fab class='fab' icon=[[icon]] mini on-tap="close"></paper-fab></a>
 
 	</template>
 </dom-module>
@@ -60,10 +63,11 @@ Style                                                   | Description
 	Polymer({
 		is: 'paper-fab-speed-dial-action',
 		properties: {
-			/**
-			 * Icon that is shown next to the content
-			 */
 			icon: String
+		},
+		// on-tap close Overlay
+		close: function(e) {
+			this.parentNode.opened = false;
 		}
 	});
 
